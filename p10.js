@@ -1,7 +1,7 @@
 console.time('p10');
-var n = 20 * 1000 * 1000;
+var n = 50 * 1000 * 1000;
 //var n = 10;
-// made a change
+
 var a = 1;
 var p = [3];
 var s = 5;
@@ -30,25 +30,21 @@ console.timeEnd('p10');
 
 console.log(s);
 console.time('p10-2');
-s = 0;
-var bound = (n -1) % 2;
-var crossed = {};
-for(var i = 4; i < n; i+=2 )
-    crossed[i] = true;
+
+var limit = n;
+var sum = 0;
+var sievebound = (limit -1) % 2;
+var sieve = {};
 var crossLimit = (Math.floor(Math.sqrt(n)) - 1)/2;
 
+for(var i = 1; i < crossLimit; i++ )
+    if (!sieve[i]){
+        for(var j = 2*i*(i+1); j< sievebound; j+= 2*i+1)
+            sieve[j] = true;
+    }
+sum = 2;
 
-for(var k =3; k< crossLimit; k +=2)
-{
-    if (!crossed[k] )
-        {
-            for(var i = 2*k*(k+1); i< bound; i+=2*k+1)
-                crossed[i] = true;
-        }
-}
-
-
-for(var i = 2; i< n; i++)
+for(var i = 1; i< sievebound; i++)
 {
     if (!crossed[i])
         s+=2*i+1;
