@@ -48,6 +48,15 @@ for(var i =0; i< grid.length-3; i++)
         console.log(grid[j][i]+" "+grid[j+1][i+1]+" "+grid[j+2][i+2] +" "+ grid[j+3][i+3])
                          }
     }
+console.log("\n");
+var diagProd = 1;
+for(var i =grid.length-1; i>=3; i--)
+    for(var j=grid[i].length-1; j>=3; j--){
+        var p = grid[j-3][i]*grid[j-2][i-1]*grid[j-1][i-2] * grid[j][i-3];
+        if (p > diagProd){ diagProd = p;
+        console.log(grid[j-3][i]+" "+grid[j-2][i-1]+" "+grid[j-1][i-2] +" "+ grid[j][i-3])
+                         }
+    }
 
 // does not get the correct answer yet 
 
