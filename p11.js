@@ -49,6 +49,8 @@ for(var i =0; i< grid.length-3; i++)
                          }
     }
 
+// does not get the correct answer yet 
+
 console.log("\n");
 console.timeEnd('p11');
 console.log(verticalProd);
